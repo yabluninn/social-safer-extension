@@ -8,3 +8,4 @@
 - Imported JQuery.js library;
 - Added "edit link" page;
 - Added edit links system;
+- Added extensions icons (from Flaticon.com)
