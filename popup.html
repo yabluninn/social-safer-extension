@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Social Safer extension</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="extension">
+      <div class="welcome-page" style="display: none">
+        <img
+          src="https://cdn-icons-png.flaticon.com/128/3898/3898709.png"
+          alt=""
+        />
+        <p class="welcome-header">Welcome!</p>
+        <div class="welcome-nickname-block">
+          <p class="welcome-nickname-label">Set your nickname</p>
+          <div class="welcome-input-block">
+            <i class="fa-solid fa-pen-to-square"></i>
+            <input
+              type="text"
+              placeholder="Enter nickname"
+              class="user-nickname-input"
+            />
+          </div>
+        </div>
+        <button class="create-user-btn">
+          <i class="fa-solid fa-square-check" style="scale: 0"></i>
+          <p>Continue</p>
+          <i class="fa-solid fa-square-caret-right"></i>
+        </button>
+      </div>
+      <div class="main-page">
+        <p class="main-page-header">Welcome, User</p>
+        <div class="saved-social-links">
+          <!-- <div class="saved-link-item">
+            <p class="saved-link-item-name">Instagram</p>
+            <i class="fa-brands fa-instagram"></i>
+            <div class="sli-label sli-connected">
+              <p>Connected</p>
+              <i class="fa-solid fa-check"></i>
+            </div>
+          </div> -->
+        </div>
+        <div class="nav-menu">
+          <div class="nav-items">
+            <button class="nav-item nav-current" id="nav-user">
+              <i class="fa-solid fa-user"></i>
+            </button>
+            <button class="nav-item" id="nav-settings">
+              <i class="fa-solid fa-gear"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script
+      src="https://kit.fontawesome.com/639cd4a693.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/icons.js"></script>
+    <script src="js/core.js"></script>
+    <script src="js/socialmedia.js"></script>
+    <script src="js/user.js"></script>
+    <script src="js/popup.js"></script>
+  </body>
+</html>
