@@ -14,7 +14,14 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["js/popup.js", "js/user.js", "js/icons.js"]
+      "js": [
+        "js/popup.js",
+        "js/user.js",
+        "js/socialmedia.js",
+        "js/core.js",
+        "js/jquery.js",
+        "js/icons.js"
+      ]
     }
   ]
 }

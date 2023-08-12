@@ -1,7 +1,7 @@
 let user = {
   user_id: "",
   user_name: "",
-  socail_medias: [],
+  social_medias: [],
 };
 
 function loadUser() {

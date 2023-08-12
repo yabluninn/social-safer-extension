@@ -1,13 +1,13 @@
 let socialMedias = [
-  { name: "Instagram", connected: false, link: "" },
-  { name: "Twitter", connected: false, link: "" },
-  { name: "Facebook", connected: false, link: "" },
-  { name: "Telegram", connected: false, link: "" },
-  { name: "TikTok", connected: false, link: "" },
-  { name: "Discord", connected: false, link: "" },
-  { name: "LinkedIn", connected: false, link: "" },
-  { name: "Whatsapp", connected: false, link: "" },
-  { name: "GitHub", connected: false, link: "" },
+  { id: 0, name: "Instagram", connected: false, link: "" },
+  { id: 1, name: "Twitter", connected: false, link: "" },
+  { id: 2, name: "Facebook", connected: false, link: "" },
+  { id: 3, name: "Telegram", connected: false, link: "" },
+  { id: 4, name: "TikTok", connected: false, link: "" },
+  { id: 5, name: "Discord", connected: false, link: "" },
+  { id: 6, name: "LinkedIn", connected: false, link: "" },
+  { id: 7, name: "Whatsapp", connected: false, link: "" },
+  { id: 8, name: "GitHub", connected: false, link: "" },
 ];
 
 // let socialMedias = [

@@ -1,5 +1,6 @@
 const welcomePage = document.querySelector(".welcome-page");
 const mainPage = document.querySelector(".main-page");
+const editLinkPage = document.querySelector(".edit-link-page");
 
 const navUserButton = document.querySelector("#nav-user");
 const navSettingsButton = document.querySelector("#nav-settings");
@@ -9,9 +10,13 @@ start();
 function start() {
   hideAllPages();
   const user = loadUser();
-  if (user.user_name != null && user.user_name.trim() !== "") {
-    // Show main page
-    showMainPage(user);
+  if (user != null) {
+    if (user.user_name != null && user.user_name.trim() !== "") {
+      // Show main page
+      showMainPage(user);
+    } else {
+      showWelcomePage();
+    }
   } else {
     showWelcomePage();
   }
@@ -20,6 +25,7 @@ function start() {
 function hideAllPages() {
   welcomePage.style.display = "none";
   mainPage.style.display = "none";
+  editLinkPage.style.display = "none";
 
   if (navUserButton) {
     navUserButton.classList.remove("nav-current");
@@ -41,10 +47,10 @@ function showWelcomePage() {
       const newUser = Object.assign({}, user);
       newUser.user_id = id;
       newUser.user_name = nickname;
-      newUser.socail_medias = socialMedias;
+      newUser.social_medias = socialMedias;
       saveUser(newUser);
       hideAllPages();
-      showMainPage();
+      showMainPage(newUser);
     }
   });
 }
@@ -56,8 +62,9 @@ function showMainPage(_user) {
   navUserButton.classList.add("nav-current");
 
   const savedLinksList = document.querySelector(".saved-social-links");
+  savedLinksList.innerHTML = "";
 
-  _user.socail_medias.forEach((item) => {
+  _user.social_medias.forEach((item, index) => {
     const socialMediaBlock = document.createElement("div");
     socialMediaBlock.className = "saved-link-item";
 
@@ -90,5 +97,60 @@ function showMainPage(_user) {
     socialMediaBlock.appendChild(statusLabel);
 
     savedLinksList.appendChild(socialMediaBlock);
+
+    function OnShowEditPage() {
+      showEditLingPage(_user, index);
+      console.log(`index: ${index}`);
+    }
+
+    socialMediaBlock.addEventListener("click", OnShowEditPage);
   });
+}
+
+function showEditLingPage(user, social_media_id) {
+  editLinkPage.style.display = "flex";
+
+  const socialMediaId = social_media_id;
+
+  const closeButton = document.querySelector(".el-close-button");
+  $(closeButton).on("click", function () {
+    hideEditLinkPage(user);
+    console.log(socialMediaId);
+  });
+
+  let socialName = user.social_medias[socialMediaId].name;
+
+  const iconBlock = document.querySelector(".el-icon-block");
+  iconBlock.innerHTML = "";
+
+  const icon = document.createElement("i");
+  icon.classList.add("fa-brands");
+  icon.classList.add(`fa-${socialName.toLowerCase()}`);
+  iconBlock.appendChild(icon);
+
+  const iconNameText = document.createElement("p");
+  iconNameText.className = "el-icon-name";
+  iconNameText.innerHTML = socialName;
+  iconBlock.appendChild(iconNameText);
+
+  const linkInput = document.querySelector(".el-input");
+  let link = user.social_medias[socialMediaId].link;
+  linkInput.value = link;
+
+  const saveButton = document.querySelector(".el-save-button");
+  $(saveButton).on("click", function () {
+    if (linkInput.value.trim() !== "") {
+      user.social_medias[socialMediaId].link = linkInput.value;
+      user.social_medias[socialMediaId].connected = true;
+      saveUser(user);
+      hideEditLinkPage(user);
+    }
+  });
+}
+
+function hideEditLinkPage(_user) {
+  $(".el-save-button").off("click");
+  $(".el-close-button").off("click");
+  hideAllPages();
+  showMainPage(_user);
 }
