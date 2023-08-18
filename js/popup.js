@@ -67,6 +67,7 @@ function showMainPage(_user) {
   _user.social_medias.forEach((item, index) => {
     const socialMediaBlock = document.createElement("div");
     socialMediaBlock.className = "saved-link-item";
+    socialMediaBlock.id = `sli-${item.name.toLowerCase()}`;
 
     const header = document.createElement("p");
     header.className = "saved-link-item-name";
@@ -122,6 +123,7 @@ function showEditLingPage(user, social_media_id) {
 
   const iconBlock = document.querySelector(".el-icon-block");
   iconBlock.innerHTML = "";
+  iconBlock.id = `sli-${user.social_medias[socialMediaId].name.toLowerCase()}`;
 
   const icon = document.createElement("i");
   icon.classList.add("fa-brands");
@@ -146,11 +148,20 @@ function showEditLingPage(user, social_media_id) {
       hideEditLinkPage(user);
     }
   });
+
+  const copyButton = document.querySelector(".el-copy-button");
+  $(copyButton).on("click", function () {
+    const textToCopy = linkInput.value;
+    if (textToCopy.trim() !== "") {
+      navigator.clipboard.writeText(textToCopy);
+    }
+  });
 }
 
 function hideEditLinkPage(_user) {
   $(".el-save-button").off("click");
   $(".el-close-button").off("click");
+  $(".el-copy-button").off("click");
   hideAllPages();
   showMainPage(_user);
 }
