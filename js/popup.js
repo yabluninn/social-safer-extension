@@ -156,6 +156,13 @@ function showEditLingPage(user, social_media_id) {
       navigator.clipboard.writeText(textToCopy);
     }
   });
+
+  const savedCheckmark = document.querySelector(".el-checkmark");
+  if (user.social_medias[socialMediaId].connected) {
+    savedCheckmark.style.display = "flex";
+  } else {
+    savedCheckmark.style.display = "none";
+  }
 }
 
 function hideEditLinkPage(_user) {

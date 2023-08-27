@@ -16,3 +16,7 @@
 - Added copy to clipboard feature (Users can copy profile links to clipboard to fast and comfort using);
 - Redesigned navigation menu;
 - Redesigned edit link panel;
+
+# version 1.3:
+
+- Added "saved checkmark" to "Edit link" page (if social profile url connected checkmark will be shown)

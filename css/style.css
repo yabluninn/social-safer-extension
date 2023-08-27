@@ -387,7 +387,7 @@ button:hover {
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
-  margin-top: 25px;
+  margin-top: 40px;
 }
 .fa-link {
   font-size: 18px;
@@ -454,4 +454,21 @@ button:hover {
   margin: 0;
   padding: 0;
   margin-right: 20px;
+}
+
+.el-checkmark {
+  width: 37px;
+  height: 37px;
+  border: 1px solid;
+  border-radius: var(--input-radius);
+  background-color: rgb(189, 245, 189);
+  color: green;
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 46.5%;
+  left: 61%;
+  transform: scale(0.8, 0.8);
 }
